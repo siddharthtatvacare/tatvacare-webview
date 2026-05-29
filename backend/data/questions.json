@@ -1,0 +1,183 @@
+{
+  "_note": "Each question has an id, display text, type, and options. Branch questions have a 'branch' field — they are only shown when that branch is triggered. Options that trigger a branch have a 'triggersBranch' field. Q1 (gender) is used by the scoring engine to select the M/F variant of the recommended package — it does not contribute to package type scoring.",
+
+  "questions": [
+    {
+      "id": "Q1",
+      "text": "What is your gender?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q1_M", "text": "Male" },
+        { "id": "Q1_F", "text": "Female" }
+      ]
+    },
+    {
+      "id": "Q2",
+      "text": "What is your age group?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q2_U30", "text": "Under 30" },
+        { "id": "Q2_30", "text": "30–45" },
+        { "id": "Q2_46", "text": "46–60" },
+        { "id": "Q2_60", "text": "60 and above" }
+      ]
+    },
+    {
+      "id": "Q3",
+      "text": "Do you have any diagnosed medical conditions?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q3_NONE",  "text": "None",                                    "triggersBranch": null },
+        { "id": "Q3_DIA",   "text": "Diabetes or pre-diabetes",                "triggersBranch": ["BRANCH_A"] },
+        { "id": "Q3_HEART", "text": "Heart disease or high blood pressure",    "triggersBranch": ["BRANCH_B"] },
+        { "id": "Q3_BOTH",  "text": "Both diabetes and heart conditions",       "triggersBranch": ["BRANCH_A", "BRANCH_B"] },
+        { "id": "Q3_OTHER", "text": "Other chronic condition",                  "triggersBranch": null }
+      ]
+    },
+
+    {
+      "id": "Q3a",
+      "text": "Are you currently on medication to manage your blood sugar?",
+      "type": "single",
+      "branch": "BRANCH_A",
+      "options": [
+        { "id": "Q3a_INS",  "text": "Yes — insulin injections" },
+        { "id": "Q3a_ORAL", "text": "Yes — oral medication (tablets)" },
+        { "id": "Q3a_NO",   "text": "No medication yet" },
+        { "id": "Q3a_NS",   "text": "Not sure" }
+      ]
+    },
+    {
+      "id": "Q3b",
+      "text": "Do you experience any of these symptoms: excessive thirst, frequent urination, or unexplained fatigue?",
+      "type": "single",
+      "branch": "BRANCH_A",
+      "options": [
+        { "id": "Q3b_YES", "text": "Yes, regularly" },
+        { "id": "Q3b_OCC", "text": "Occasionally" },
+        { "id": "Q3b_NO",  "text": "No" }
+      ]
+    },
+    {
+      "id": "Q3c",
+      "text": "Have you had any diabetes-related complications — such as kidney issues, eye problems, or numbness/tingling in your feet?",
+      "type": "single",
+      "branch": "BRANCH_A",
+      "options": [
+        { "id": "Q3c_YES", "text": "Yes, formally diagnosed" },
+        { "id": "Q3c_SUS", "text": "Suspected but not yet checked" },
+        { "id": "Q3c_NO",  "text": "No" }
+      ]
+    },
+
+    {
+      "id": "Q3d",
+      "text": "Have you been told that your cholesterol levels are high?",
+      "type": "single",
+      "branch": "BRANCH_B",
+      "options": [
+        { "id": "Q3d_YES", "text": "Yes" },
+        { "id": "Q3d_NO",  "text": "No" },
+        { "id": "Q3d_NC",  "text": "Never checked" }
+      ]
+    },
+    {
+      "id": "Q3e",
+      "text": "Do you experience any of these: chest discomfort, shortness of breath, or palpitations?",
+      "type": "single",
+      "branch": "BRANCH_B",
+      "options": [
+        { "id": "Q3e_YES", "text": "Yes, regularly" },
+        { "id": "Q3e_OCC", "text": "Occasionally" },
+        { "id": "Q3e_NO",  "text": "No" }
+      ]
+    },
+    {
+      "id": "Q3f",
+      "text": "Are you currently on medication for blood pressure, cholesterol, or your heart?",
+      "type": "single",
+      "branch": "BRANCH_B",
+      "options": [
+        { "id": "Q3f_YES", "text": "Yes" },
+        { "id": "Q3f_NO",  "text": "No" }
+      ]
+    },
+
+    {
+      "id": "Q4",
+      "text": "Does your immediate family (parents or siblings) have a history of any of the following?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q4_NONE",  "text": "No significant family history" },
+        { "id": "Q4_DIA",   "text": "Diabetes" },
+        { "id": "Q4_HEART", "text": "Heart disease or stroke" },
+        { "id": "Q4_BOTH",  "text": "Both diabetes and heart disease" }
+      ]
+    },
+    {
+      "id": "Q5",
+      "text": "What best describes your lifestyle?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q5_ACT",  "text": "Mostly active with a healthy diet" },
+        { "id": "Q5_SED",  "text": "Sedentary — desk job, 6+ hours sitting daily" },
+        { "id": "Q5_SMK",  "text": "Smoker or ex-smoker" },
+        { "id": "Q5_OWT",  "text": "Overweight or obese" },
+        { "id": "Q5_ALC",  "text": "High alcohol consumption" }
+      ]
+    },
+    {
+      "id": "Q6",
+      "text": "Do you know your current blood pressure status?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q6_NC",   "text": "Never had it checked" },
+        { "id": "Q6_NRM",  "text": "Normal" },
+        { "id": "Q6_BDR",  "text": "Borderline high" },
+        { "id": "Q6_HIGH", "text": "Confirmed high (hypertension)" }
+      ]
+    },
+    {
+      "id": "Q7",
+      "text": "Do you know your current blood sugar status?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q7_NC",   "text": "Never had it checked" },
+        { "id": "Q7_NRM",  "text": "Normal" },
+        { "id": "Q7_BDR",  "text": "Borderline high (pre-diabetic range)" },
+        { "id": "Q7_HIGH", "text": "High" }
+      ]
+    },
+    {
+      "id": "Q8",
+      "text": "When was your last health checkup?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q8_NEVER", "text": "Never had one" },
+        { "id": "Q8_1Y",    "text": "Within the last year" },
+        { "id": "Q8_3Y",    "text": "1–3 years ago" },
+        { "id": "Q8_OLD",   "text": "More than 3 years ago" }
+      ]
+    },
+    {
+      "id": "Q9",
+      "text": "What is your primary health concern today?",
+      "type": "single",
+      "branch": null,
+      "options": [
+        { "id": "Q9_GEN",  "text": "General preventive checkup — I want to know my baseline health" },
+        { "id": "Q9_DIA",  "text": "Monitor or manage my blood sugar" },
+        { "id": "Q9_HRT",  "text": "Heart health and cardiac risk" },
+        { "id": "Q9_COMP", "text": "Most comprehensive checkup available" }
+      ]
+    }
+  ]
+}

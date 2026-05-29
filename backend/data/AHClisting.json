@@ -1,0 +1,1822 @@
+[
+  {
+    "oracleCode": 441661,
+    "name": "Basic Health Package",
+    "gender": "male",
+    "price": 4350,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "Prostate Specific Antigen",
+        "abbr": "PSA",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441670,
+    "name": "Basic Health Package",
+    "gender": "female",
+    "price": 4350,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "Prolactin",
+        "abbr": "PRL",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441669,
+    "name": "Silver Health Package",
+    "gender": "male",
+    "price": 6750,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Electrolytes",
+        "abbr": "Elec",
+        "subTests": [
+          { "name": "Sodium", "abbr": "Na" },
+          { "name": "Potassium", "abbr": "K" },
+          { "name": "Chloride", "abbr": "Cl" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin D (25-Hydroxy)",
+        "abbr": "VitD",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin B12",
+        "abbr": "B12",
+        "subTests": []
+      },
+      {
+        "name": "Folate",
+        "abbr": "Folate",
+        "subTests": []
+      },
+      {
+        "name": "Resting Electrocardiogram",
+        "abbr": "ECG",
+        "subTests": []
+      },
+      {
+        "name": "Prostate Specific Antigen",
+        "abbr": "PSA",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441667,
+    "name": "Silver Health Package",
+    "gender": "female",
+    "price": 6750,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Electrolytes",
+        "abbr": "Elec",
+        "subTests": [
+          { "name": "Sodium", "abbr": "Na" },
+          { "name": "Potassium", "abbr": "K" },
+          { "name": "Chloride", "abbr": "Cl" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin D (25-Hydroxy)",
+        "abbr": "VitD",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin B12",
+        "abbr": "B12",
+        "subTests": []
+      },
+      {
+        "name": "Folate",
+        "abbr": "Folate",
+        "subTests": []
+      },
+      {
+        "name": "Resting Electrocardiogram",
+        "abbr": "ECG",
+        "subTests": []
+      },
+      {
+        "name": "Follicle Stimulating Hormone",
+        "abbr": "FSH",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441660,
+    "name": "Gold Health Package",
+    "gender": "male",
+    "price": 13150,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Electrolytes",
+        "abbr": "Elec",
+        "subTests": [
+          { "name": "Sodium", "abbr": "Na" },
+          { "name": "Potassium", "abbr": "K" },
+          { "name": "Chloride", "abbr": "Cl" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin D (25-Hydroxy)",
+        "abbr": "VitD",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin B12",
+        "abbr": "B12",
+        "subTests": []
+      },
+      {
+        "name": "Folate",
+        "abbr": "Folate",
+        "subTests": []
+      },
+      {
+        "name": "Resting Electrocardiogram",
+        "abbr": "ECG",
+        "subTests": []
+      },
+      {
+        "name": "High-Sensitivity C-Reactive Protein",
+        "abbr": "hs-CRP",
+        "subTests": []
+      },
+      {
+        "name": "Homocysteine",
+        "abbr": "Hcy",
+        "subTests": []
+      },
+      {
+        "name": "Phosphorus",
+        "abbr": "Phos",
+        "subTests": []
+      },
+      {
+        "name": "Magnesium",
+        "abbr": "Mg",
+        "subTests": []
+      },
+      {
+        "name": "Testosterone Total",
+        "abbr": "Testo",
+        "subTests": []
+      },
+      {
+        "name": "Prostate Specific Antigen",
+        "abbr": "PSA",
+        "subTests": []
+      },
+      {
+        "name": "Chest X-Ray",
+        "abbr": "CXR",
+        "subTests": []
+      },
+      {
+        "name": "Ultrasound Whole Abdomen",
+        "abbr": "USG-Abd",
+        "subTests": []
+      },
+      {
+        "name": "Physician Consultation",
+        "abbr": "Consult",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441666,
+    "name": "Gold Health Package",
+    "gender": "female",
+    "price": 13150,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Electrolytes",
+        "abbr": "Elec",
+        "subTests": [
+          { "name": "Sodium", "abbr": "Na" },
+          { "name": "Potassium", "abbr": "K" },
+          { "name": "Chloride", "abbr": "Cl" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin D (25-Hydroxy)",
+        "abbr": "VitD",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin B12",
+        "abbr": "B12",
+        "subTests": []
+      },
+      {
+        "name": "Folate",
+        "abbr": "Folate",
+        "subTests": []
+      },
+      {
+        "name": "Resting Electrocardiogram",
+        "abbr": "ECG",
+        "subTests": []
+      },
+      {
+        "name": "High-Sensitivity C-Reactive Protein",
+        "abbr": "hs-CRP",
+        "subTests": []
+      },
+      {
+        "name": "Homocysteine",
+        "abbr": "Hcy",
+        "subTests": []
+      },
+      {
+        "name": "Phosphorus",
+        "abbr": "Phos",
+        "subTests": []
+      },
+      {
+        "name": "Magnesium",
+        "abbr": "Mg",
+        "subTests": []
+      },
+      {
+        "name": "Follicle Stimulating Hormone",
+        "abbr": "FSH",
+        "subTests": []
+      },
+      {
+        "name": "Luteinizing Hormone",
+        "abbr": "LH",
+        "subTests": []
+      },
+      {
+        "name": "Estradiol",
+        "abbr": "E2",
+        "subTests": []
+      },
+      {
+        "name": "Cancer Antigen 125",
+        "abbr": "CA-125",
+        "subTests": []
+      },
+      {
+        "name": "Chest X-Ray",
+        "abbr": "CXR",
+        "subTests": []
+      },
+      {
+        "name": "Ultrasound Whole Abdomen & Pelvis",
+        "abbr": "USG-Abd-Pel",
+        "subTests": []
+      },
+      {
+        "name": "Physician Consultation",
+        "abbr": "Consult",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441665,
+    "name": "Diabetic Profile",
+    "gender": "male",
+    "price": 8900,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Post Prandial Blood Sugar",
+        "abbr": "PPBS",
+        "subTests": []
+      },
+      {
+        "name": "Fasting Insulin",
+        "abbr": "F-Ins",
+        "subTests": []
+      },
+      {
+        "name": "C-Peptide (Fasting)",
+        "abbr": "C-Pep",
+        "subTests": []
+      },
+      {
+        "name": "Micro-Albumin in Urine",
+        "abbr": "MAU",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin B12",
+        "abbr": "B12",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin D (25-Hydroxy)",
+        "abbr": "VitD",
+        "subTests": []
+      },
+      {
+        "name": "Prostate Specific Antigen",
+        "abbr": "PSA",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441664,
+    "name": "Diabetic Profile",
+    "gender": "female",
+    "price": 8900,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Liver Function Test",
+        "abbr": "LFT",
+        "subTests": [
+          { "name": "Total Bilirubin", "abbr": "T.Bil" },
+          { "name": "Direct Bilirubin", "abbr": "D.Bil" },
+          { "name": "Indirect Bilirubin", "abbr": "I.Bil" },
+          { "name": "SGPT (ALT)", "abbr": "ALT" },
+          { "name": "SGOT (AST)", "abbr": "AST" },
+          { "name": "Alkaline Phosphatase", "abbr": "ALP" },
+          { "name": "Gamma GT", "abbr": "GGT" },
+          { "name": "Total Protein", "abbr": "TP" },
+          { "name": "Albumin", "abbr": "Alb" },
+          { "name": "Globulin", "abbr": "Glob" },
+          { "name": "Albumin / Globulin Ratio", "abbr": "A/G" },
+          { "name": "Lactate Dehydrogenase", "abbr": "LDH" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Post Prandial Blood Sugar",
+        "abbr": "PPBS",
+        "subTests": []
+      },
+      {
+        "name": "Fasting Insulin",
+        "abbr": "F-Ins",
+        "subTests": []
+      },
+      {
+        "name": "C-Peptide (Fasting)",
+        "abbr": "C-Pep",
+        "subTests": []
+      },
+      {
+        "name": "Micro-Albumin in Urine",
+        "abbr": "MAU",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin B12",
+        "abbr": "B12",
+        "subTests": []
+      },
+      {
+        "name": "Vitamin D (25-Hydroxy)",
+        "abbr": "VitD",
+        "subTests": []
+      },
+      {
+        "name": "Prolactin",
+        "abbr": "PRL",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441663,
+    "name": "Healthy Heart Profile",
+    "gender": "male",
+    "price": 7950,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Electrolytes",
+        "abbr": "Elec",
+        "subTests": [
+          { "name": "Sodium", "abbr": "Na" },
+          { "name": "Potassium", "abbr": "K" },
+          { "name": "Chloride", "abbr": "Cl" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "High-Sensitivity C-Reactive Protein",
+        "abbr": "hs-CRP",
+        "subTests": []
+      },
+      {
+        "name": "Homocysteine",
+        "abbr": "Hcy",
+        "subTests": []
+      },
+      {
+        "name": "Troponin I",
+        "abbr": "TnI",
+        "subTests": []
+      },
+      {
+        "name": "BNP (B-type Natriuretic Peptide)",
+        "abbr": "BNP",
+        "subTests": []
+      },
+      {
+        "name": "Lipoprotein (a)",
+        "abbr": "Lp(a)",
+        "subTests": []
+      },
+      {
+        "name": "Apolipoprotein B",
+        "abbr": "ApoB",
+        "subTests": []
+      },
+      {
+        "name": "Resting Electrocardiogram",
+        "abbr": "ECG",
+        "subTests": []
+      },
+      {
+        "name": "Chest X-Ray",
+        "abbr": "CXR",
+        "subTests": []
+      },
+      {
+        "name": "Prostate Specific Antigen",
+        "abbr": "PSA",
+        "subTests": []
+      }
+    ]
+  },
+  {
+    "oracleCode": 441662,
+    "name": "Healthy Heart Profile",
+    "gender": "female",
+    "price": 7950,
+    "_note": "REPLACE tests[] with actual Fortis test list when available. Maintain oracleCode, name, gender, price fields.",
+    "tests": [
+      {
+        "name": "Complete Blood Count",
+        "abbr": "CBC",
+        "subTests": [
+          { "name": "Red Blood Cell Count", "abbr": "RBC" },
+          { "name": "White Blood Cell Count", "abbr": "WBC" },
+          { "name": "Haemoglobin", "abbr": "Hb" },
+          { "name": "Haematocrit", "abbr": "Hct" },
+          { "name": "Mean Corpuscular Volume", "abbr": "MCV" },
+          { "name": "Mean Corpuscular Haemoglobin", "abbr": "MCH" },
+          { "name": "Mean Corpuscular Haemoglobin Concentration", "abbr": "MCHC" },
+          { "name": "Red Cell Distribution Width", "abbr": "RDW" },
+          { "name": "Platelet Count", "abbr": "PLT" },
+          { "name": "Mean Platelet Volume", "abbr": "MPV" },
+          { "name": "Platelet Distribution Width", "abbr": "PDW" },
+          { "name": "Neutrophils %", "abbr": "NEU%" },
+          { "name": "Lymphocytes %", "abbr": "LYM%" },
+          { "name": "Monocytes %", "abbr": "MON%" },
+          { "name": "Eosinophils %", "abbr": "EOS%" },
+          { "name": "Basophils %", "abbr": "BAS%" },
+          { "name": "Absolute Neutrophil Count", "abbr": "ANC" },
+          { "name": "Absolute Lymphocyte Count", "abbr": "ALC" },
+          { "name": "Absolute Monocyte Count", "abbr": "AMC" },
+          { "name": "Absolute Eosinophil Count", "abbr": "AEC" },
+          { "name": "Absolute Basophil Count", "abbr": "ABC" },
+          { "name": "Peripheral Blood Smear", "abbr": "PBS" },
+          { "name": "Reticulocyte Count", "abbr": "Retic" },
+          { "name": "Nucleated RBC", "abbr": "NRBC" },
+          { "name": "Band Cells", "abbr": "Bands" }
+        ]
+      },
+      {
+        "name": "Complete Urine Examination",
+        "abbr": "CUE",
+        "subTests": [
+          { "name": "Colour", "abbr": "Col" },
+          { "name": "Clarity", "abbr": "Clar" },
+          { "name": "Specific Gravity", "abbr": "SG" },
+          { "name": "pH", "abbr": "pH" },
+          { "name": "Protein", "abbr": "Prot" },
+          { "name": "Glucose", "abbr": "Glu" },
+          { "name": "Ketones", "abbr": "Ket" },
+          { "name": "Bilirubin", "abbr": "Bil" },
+          { "name": "Urobilinogen", "abbr": "Ubil" },
+          { "name": "Nitrites", "abbr": "Nit" },
+          { "name": "Leucocyte Esterase", "abbr": "LE" },
+          { "name": "Blood", "abbr": "Bld" },
+          { "name": "RBC (Microscopy)", "abbr": "RBC-U" },
+          { "name": "WBC / Pus Cells (Microscopy)", "abbr": "WBC-U" },
+          { "name": "Epithelial Cells", "abbr": "Epi" },
+          { "name": "Casts", "abbr": "Casts" },
+          { "name": "Crystals", "abbr": "Crys" },
+          { "name": "Bacteria", "abbr": "Bact" },
+          { "name": "Yeast Cells", "abbr": "Yeast" },
+          { "name": "Mucus Threads", "abbr": "Mucus" }
+        ]
+      },
+      {
+        "name": "Lipid Profile",
+        "abbr": "LP",
+        "subTests": [
+          { "name": "Total Cholesterol", "abbr": "TC" },
+          { "name": "LDL Cholesterol", "abbr": "LDL-C" },
+          { "name": "HDL Cholesterol", "abbr": "HDL-C" },
+          { "name": "VLDL Cholesterol", "abbr": "VLDL-C" },
+          { "name": "Triglycerides", "abbr": "TG" },
+          { "name": "Non-HDL Cholesterol", "abbr": "Non-HDL" },
+          { "name": "Total Cholesterol / HDL Ratio", "abbr": "TC/HDL" },
+          { "name": "LDL / HDL Ratio", "abbr": "LDL/HDL" },
+          { "name": "Triglycerides / HDL Ratio", "abbr": "TG/HDL" }
+        ]
+      },
+      {
+        "name": "Kidney Function Test",
+        "abbr": "KFT",
+        "subTests": [
+          { "name": "Creatinine", "abbr": "Creat" },
+          { "name": "Blood Urea Nitrogen", "abbr": "BUN" },
+          { "name": "Urea", "abbr": "Urea" },
+          { "name": "Uric Acid", "abbr": "UA" },
+          { "name": "eGFR", "abbr": "eGFR" },
+          { "name": "Calcium", "abbr": "Ca" }
+        ]
+      },
+      {
+        "name": "Thyroid Profile",
+        "abbr": "TFT",
+        "subTests": [
+          { "name": "Tri-iodothyronine", "abbr": "T3" },
+          { "name": "Thyroxine", "abbr": "T4" },
+          { "name": "Thyroid Stimulating Hormone", "abbr": "TSH" }
+        ]
+      },
+      {
+        "name": "Glycosylated Haemoglobin",
+        "abbr": "HbA1c",
+        "subTests": [
+          { "name": "HbA1c %", "abbr": "HbA1c" },
+          { "name": "Estimated Average Glucose", "abbr": "eAG" }
+        ]
+      },
+      {
+        "name": "Iron Studies",
+        "abbr": "IS",
+        "subTests": [
+          { "name": "Serum Iron", "abbr": "Fe" },
+          { "name": "Total Iron Binding Capacity", "abbr": "TIBC" },
+          { "name": "Unsaturated Iron Binding Capacity", "abbr": "UIBC" },
+          { "name": "Transferrin Saturation", "abbr": "TS%" },
+          { "name": "Serum Ferritin", "abbr": "Ferr" }
+        ]
+      },
+      {
+        "name": "Electrolytes",
+        "abbr": "Elec",
+        "subTests": [
+          { "name": "Sodium", "abbr": "Na" },
+          { "name": "Potassium", "abbr": "K" },
+          { "name": "Chloride", "abbr": "Cl" }
+        ]
+      },
+      {
+        "name": "Fasting Blood Sugar",
+        "abbr": "FBS",
+        "subTests": []
+      },
+      {
+        "name": "Erythrocyte Sedimentation Rate",
+        "abbr": "ESR",
+        "subTests": []
+      },
+      {
+        "name": "High-Sensitivity C-Reactive Protein",
+        "abbr": "hs-CRP",
+        "subTests": []
+      },
+      {
+        "name": "Homocysteine",
+        "abbr": "Hcy",
+        "subTests": []
+      },
+      {
+        "name": "Troponin I",
+        "abbr": "TnI",
+        "subTests": []
+      },
+      {
+        "name": "BNP (B-type Natriuretic Peptide)",
+        "abbr": "BNP",
+        "subTests": []
+      },
+      {
+        "name": "Lipoprotein (a)",
+        "abbr": "Lp(a)",
+        "subTests": []
+      },
+      {
+        "name": "Apolipoprotein B",
+        "abbr": "ApoB",
+        "subTests": []
+      },
+      {
+        "name": "Resting Electrocardiogram",
+        "abbr": "ECG",
+        "subTests": []
+      },
+      {
+        "name": "Chest X-Ray",
+        "abbr": "CXR",
+        "subTests": []
+      },
+      {
+        "name": "Estradiol",
+        "abbr": "E2",
+        "subTests": []
+      }
+    ]
+  }
+]
