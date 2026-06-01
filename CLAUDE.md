@@ -14,7 +14,7 @@ If you are picking this up fresh, do the following before anything else:
 ---
 
 ## What this is
-A TatvaCare-owned PWA/webview embedded inside the myFortis app via a native webview. The entry point is a "Find the package best suited for you" CTA on the myFortis Health Packages screen. From there, users answer up to 13 questions (with branching) and get a recommended Fortis health package, with an optional AI-generated explanation of why it suits them.
+A TatvaCare-owned PWA/webview embedded inside the myFortis app via a native webview. The entry point is a "Help me find a health package" banner on the myFortis **Home** screen (directly below the "We can help you book" tiles). Tapping it launches the TatvaCare SDK webview *without navigating away from Home*. From there, users answer up to 13 questions (with branching) and get a recommended Fortis health package, with an optional AI-generated explanation of why it suits them.
 
 This is built for the IHH Accelerator demo. Scope is a working prototype, but the architecture is designed to scale to production.
 
@@ -177,7 +177,7 @@ Provider: configured via `LLM_BASE_URL` + `LLM_API_KEY` + `LLM_MODEL` in `.env`.
 
 ## Integration Points (with myFortis)
 
-1. **Entry** — myFortis passes `?pid=PATIENT_ID` when opening the webview
+1. **Entry** — user taps the "Help me find a health package" banner on the myFortis Home screen; myFortis passes `?pid=PATIENT_ID` when opening the webview (host app stays on Home)
 2. **Booking handoff** — on "Book This Package": TatvaCare backend POSTs `{ patientId, sessionId, recommendedPackage, answers, scores }` to `FORTIS_BOOKING_WEBHOOK`; webview simultaneously sends a `postMessage` / native JS bridge call to hand UI control back to the Fortis app
 3. **Lab Report Webhook** — Fortis → TatvaCare: `POST /api/webhook/XXXXX` (path TBD)
 
@@ -194,7 +194,7 @@ Provider: configured via `LLM_BASE_URL` + `LLM_API_KEY` + `LLM_MODEL` in `.env`.
 - [x] Backend scaffolded — `index.js`, `config/db.js`, all 3 Mongoose models, all 4 route files (session, questions, responses, recommend), `scoringEngine.js`, `llmService.js`; `npm install` verified clean
 - [x] `GET /api/questions` — serves `questions.json` from the backend; frontend fetches on load; no local copy in frontend
 - [x] `backend/.env` — MONGO_URI (MongoDB Atlas dev cluster), LLM_BASE_URL/LLM_API_KEY/LLM_MODEL (Groq llama-3.3-70b-versatile); `backend/.gitignore` excludes it
-- [x] myFortis demo mock (`../myfortis-spoof/index.html`) — single-file HTML/JS app replicating myFortis screens (Login → Home → Health Packages). "Find My Package" CTA opens `http://localhost:3000?pid=FORTIS_SID_001`. **Demo-only.**
+- [x] myFortis demo mock (`../myfortis-spoof/index.html`) — single-file HTML/JS app replicating myFortis screens (Login → Home → Health Packages). The "Help me find a health package" banner on Home opens the TatvaCare SDK webview with `?pid=FORTIS_SID_001`. **Demo-only.**
 - [x] TatvaCare frontend scaffolded — Vite + React + Tailwind; all 6 screens written (Welcome, Questionnaire, Loading, Result, Explain, Error); `App.jsx` state machine handles session restore, branching, retry logic, localStorage persistence; `npm install` done
 - [x] `llmService.js` lazy init fix — `OpenAI` client now instantiated inside `generateExplanation()`, not at module load time; backend starts cleanly
 - [x] `recommend.js` error handling — both POST and GET routes wrapped in try/catch; server no longer crashes on LLM errors, returns proper 500 to frontend
@@ -206,7 +206,9 @@ Provider: configured via `LLM_BASE_URL` + `LLM_API_KEY` + `LLM_MODEL` in `.env`.
 - [x] Session lifecycle fix — `sessionStorage` flag (`tc_fortis_active`) gates `localStorage` restore; closing/reopening the webview starts fresh (flag cleared); page refresh resumes (flag survives). Works identically in browser tabs and native iOS/Android webviews (WKWebView/WebView both clear sessionStorage on dismiss)
 - [x] "Book This Package" CTA wired — fires `POST /api/booking/notify` (backend pulls full payload from MongoDB and POSTs to `FORTIS_BOOKING_WEBHOOK`); simultaneously sends `postMessage` to `window.opener` with `{ patientId, sessionId, oracleCode, packageName, gender, price }`; then closes the tab after 150ms to allow message delivery. In a native webview this `window.opener` path is replaced by the native JS bridge — see `issuestofixinproduction.md` issue #1
 - [x] "Retake questionnaire" tertiary CTA added — appears on ResultScreen and ExplainScreen; calls `POST /api/session/init` to create a new MongoDB session doc, then resets all React state and navigates to WelcomeScreen; old session/responses/recommendation documents are preserved in Mongo for analytics
-- [x] myFortis spoof — booking confirmation banner added; receives `postMessage` from TatvaCare webview, shows package name + patient ID + oracle code + price on the packages screen; `openWebview()` now pins spoof to packages screen before opening the TatvaCare tab to guarantee correct screen on return
+- [x] myFortis spoof — booking confirmation card; receives `postMessage` from TatvaCare webview, shows package name + patient ID + oracle code + price. Originally rendered on the packages screen; now lives on the **Home** screen (below the entry banner) and is revealed in place via `scrollIntoView` — no screen switch
+
+- [x] myFortis spoof — Home-screen entry-point redesign (2026-06-01): (1) "We can help you book" reduced to two tiles — **Appointment** + **Radiology & Lab Test** (the old standalone "Health Packages" tile and the full-width Radiology tile were removed/merged); (2) the TatvaCare entry banner was **moved from the Health Packages screen to the Home screen**, directly below the tiles, made full-width (margin `12px 0`), copy changed to headline "Help me find a health package." / sub "Answer a few questions…", and the metric chips (BMI/BP/HbA1c/Lipids) removed; (3) `openWebview()` no longer calls `go('packages')` — it only opens the SDK webview, so the host app **stays on Home**; (4) the booking-confirmation card moved to Home accordingly. **Net effect: the Health Packages screen is now orphaned (no navigation routes to it) — kept in the markup as dead code.**
 
 - [x] Render deployment prep — `frontend/src/api/client.js` updated: `const BASE = import.meta.env.VITE_API_URL || ''` added at top; all API calls now use `` `${BASE}/api${path}` ``. Local dev unaffected (empty string → Vite proxy as before). On Render, set `VITE_API_URL=https://<backend>.onrender.com` in the Static Site env vars.
 
@@ -235,7 +237,7 @@ open ../myfortis-spoof/index.html
 # Then open http://localhost:8091
 ```
 
-Demo flow: Login (Continue as Guest) → Home → Health Packages → tap "Find My Package →" → TatvaCare webview opens.
+Demo flow: Login (Continue as Guest) → Home → tap the "Help me find a health package" banner → TatvaCare webview opens (host stays on Home) → on booking, confirmation card appears in place on Home.
 
 ---
 

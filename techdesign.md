@@ -9,7 +9,7 @@
 
 ## 1. System Overview
 
-A user inside the myFortis app taps "Find the package best suited for you" on the Health Packages screen. This opens a TatvaCare-owned webview. The user answers a branching questionnaire (8–13 questions depending on health profile), receives a recommended Fortis health package, and can optionally ask an AI to explain why that package was chosen for them.
+A user inside the myFortis app taps the "Help me find a health package" banner on the Home screen. This opens a TatvaCare-owned webview (the host app stays on Home — no navigation into the Health Packages screen). The user answers a branching questionnaire (8–13 questions depending on health profile), receives a recommended Fortis health package, and can optionally ask an AI to explain why that package was chosen for them.
 
 **Three actors:**
 - **myFortis app (Fortis)** — entry point, passes patient identifier, receives booking webhook
@@ -495,16 +495,17 @@ tatvacare-webview/
 
 **What it contains:**
 - Single self-contained HTML file (`index.html`) with embedded CSS and JS
-- Three screens: Login → Home → Health Packages (navigated via JS, no page load)
+- Screens defined: Login → Home → Health Packages (navigated via JS, no page load). **Note:** as of the 2026-06-01 redesign the Health Packages screen is orphaned — no navigation routes to it; it remains in the markup as dead code
 - Assets: `fortis-logo.png` (the real Fortis logo, scaled per placement)
-- The "Find My Package →" CTA calls `go('packages')` then `window.open('http://localhost:3000?pid=FORTIS_SID_001', '_blank')`, pinning the spoof to the packages screen before the webview opens
-- A `window.addEventListener('message', ...)` listener receives the `FORTIS_PACKAGE_BOOKED` postMessage from TatvaCare on booking, then shows a green confirmation banner on the packages screen with the package name, patient ID, oracle code, and price
+- **Entry point is on the Home screen:** the "Help me find a health package" banner sits directly below the "We can help you book" tiles (Appointment + Radiology & Lab Test). Its `onclick="openWebview()"` calls only `window.open(<webview URL>?pid=FORTIS_SID_001, '_blank')` — it does **not** call `go('packages')`, so the spoof stays on Home while the SDK webview opens in a new tab
+- A `window.addEventListener('message', ...)` listener receives the `FORTIS_PACKAGE_BOOKED` postMessage from TatvaCare on booking, then reveals a green confirmation card **in place on the Home screen** (package name, patient ID, oracle code, price) via `scrollIntoView` — no screen switch
 
 **Design fidelity:**
 - Fortis green `#1b5e30`, light green tiles `#eaf6ef`
 - App header with Fortis logo + hospital selector + bell + emergency button
 - Bottom nav with 5 items (Home, Appointments, Reports, Explore, Profile)
-- TatvaCare CTA banner: dark green gradient, metric chips (BMI, BP, HbA1c, Lipids), white "Find My Package →" button
+- "We can help you book" → two tiles: Appointment + Radiology & Lab Test
+- TatvaCare entry banner (Home screen): dark green gradient, full-width (flush with the tiles), headline "Help me find a health package.", sub "Answer a few questions…", white "Find My Package →" button (metric chips removed in the 2026-06-01 redesign)
 
 **How to run for demo:**
 ```bash
