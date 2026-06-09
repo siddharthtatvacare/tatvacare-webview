@@ -1,0 +1,217 @@
+{
+  "source": {
+    "file": "Standard package from Fortis.xlsx",
+    "sheet": "Final",
+    "description": "Fortis standard health packages captured at package line-item level (consultations, investigations, diagnostics) as listed on the Fortis sheet. Biomarker / sub-test detail intentionally excluded.",
+    "currency": "INR",
+    "notes": [
+      "Item names lightly normalised from the source sheet for consistency (e.g. 'Pottasium'->'Potassium', 'Audiometery'->'Audiometry', 'CA-19'->'CA 19-9', 'Hb1ac'/'HB1AC'->'HbA1c', 'Thyroid Function Test'->'Thyroid Profile').",
+      "Gender-specific items are listed by Fortis as single conditional lines (e.g. 'Pap Smear / PSA', 'Mammography/USG Breast') and resolved by gender at booking; not split into separate packages here.",
+      "CBC was reclassified from consultations to investigations for Diabetic Profile and Healthy Heart Profile, where the source sheet places it one row above the 'Investigation' header.",
+      "_dataGaps records line items the clinical analysis expected but which are absent from the Fortis sheet — flagged for confirmation, not treated as deliberate exclusions."
+    ]
+  },
+  "packages": [
+    {
+      "id": "basic_health_package",
+      "name": "Basic Health Package",
+      "price": 4350,
+      "consultations": [
+        "Internal Medicine",
+        "Ophthalmology",
+        "Dental Screening"
+      ],
+      "investigations": [
+        "CBC",
+        "ESR",
+        "Urine Analysis",
+        "LFT",
+        "KFT",
+        "Blood Sugar -PP",
+        "Blood Sugar -Fasting",
+        "Lipid Profile"
+      ],
+      "diagnostics": [
+        "ECG",
+        "X-Ray Chest",
+        "Mammography/USG Breast",
+        "Pap Smear /PSA"
+      ],
+      "counts": {
+        "consultations": 3,
+        "investigations": 8,
+        "diagnostics": 4
+      }
+    },
+    {
+      "id": "silver_health_package",
+      "name": "Silver Health Package",
+      "price": 6750,
+      "consultations": [
+        "Internal Medicine",
+        "Ophthalmology",
+        "Dietician",
+        "Obs & Gynae",
+        "Dental Screening"
+      ],
+      "investigations": [
+        "CBC",
+        "ESR",
+        "Urine Analysis",
+        "LFT",
+        "KFT",
+        "Blood Sugar Fasting",
+        "Blood Sugar -PP",
+        "Stool Routine & Occult",
+        "Lipid Profile",
+        "HbA1c"
+      ],
+      "diagnostics": [
+        "ECG",
+        "Liquid PAP Smear / PSA",
+        "X-Ray Chest",
+        "USG Whole Abdomen",
+        "Mammography/USG Breast",
+        "PFT"
+      ],
+      "counts": {
+        "consultations": 5,
+        "investigations": 10,
+        "diagnostics": 6
+      }
+    },
+    {
+      "id": "gold_health_package",
+      "name": "Gold Health Package",
+      "price": 13150,
+      "consultations": [
+        "Internal Medicine",
+        "Ophthalmology",
+        "Dietician",
+        "Obs & Gynae/Urology",
+        "Cardiologist",
+        "Dental Screening",
+        "ENT"
+      ],
+      "investigations": [
+        "CBC",
+        "ESR",
+        "Urine Analysis",
+        "LFT",
+        "KFT",
+        "Stool Routine & Occult",
+        "25-Hydroxyvitamin D",
+        "Vitamin B12",
+        "Blood Sugar Fasting",
+        "Blood Sugar -PP",
+        "HbA1c",
+        "Thyroid Profile",
+        "Lipid Profile",
+        "Serum Electrolytes",
+        "CA 19-9"
+      ],
+      "diagnostics": [
+        "ECG",
+        "Liquid PAP Smear / PSA",
+        "X-Ray Chest",
+        "USG Whole Abdomen",
+        "Mammography/USG Breast",
+        "ECHO/TMT",
+        "Dexa Scan Whole Body",
+        "PFT",
+        "Audiometry"
+      ],
+      "counts": {
+        "consultations": 7,
+        "investigations": 15,
+        "diagnostics": 9
+      }
+    },
+    {
+      "id": "diabetic_profile",
+      "name": "Diabetic Profile",
+      "price": 8900,
+      "consultations": [
+        "Endocrinologist",
+        "Ophthalmology",
+        "Dietician",
+        "Dental Screening",
+        "Gastroenterologist"
+      ],
+      "investigations": [
+        "CBC",
+        "Urine Analysis",
+        "ESR",
+        "LFT",
+        "KFT",
+        "Thyroid Profile",
+        "25-Hydroxyvitamin D",
+        "Vitamin B12",
+        "Serum Potassium",
+        "HbA1c",
+        "Blood Sugar Fasting",
+        "Blood Sugar -PP",
+        "Urine for Microalbuminuria"
+      ],
+      "diagnostics": [
+        "ECG",
+        "Liquid PAP Smear / PSA",
+        "X-Ray Chest",
+        "USG Whole Abdomen",
+        "Fibroscan"
+      ],
+      "counts": {
+        "consultations": 5,
+        "investigations": 13,
+        "diagnostics": 5
+      },
+      "_dataGaps": {
+        "missingFromSheet": [
+          "Lipid Profile"
+        ],
+        "note": "Clinically expected (cardiometabolic package) but not listed on the Fortis sheet. Confirm with Fortis before scoring."
+      }
+    },
+    {
+      "id": "healthy_heart_profile",
+      "name": "Healthy Heart Profile",
+      "price": 7800,
+      "consultations": [
+        "Cardiologist",
+        "Ophthalmology",
+        "Dietician",
+        "Urologist / Gynae",
+        "Dental Screening"
+      ],
+      "investigations": [
+        "CBC",
+        "Serum Sodium",
+        "ESR",
+        "Serum Potassium",
+        "C-Reactive Protein (Serum)",
+        "25-Hydroxyvitamin D",
+        "Vitamin B12",
+        "Troponin-I",
+        "Blood Sugar Fasting",
+        "Blood Sugar -PP"
+      ],
+      "diagnostics": [
+        "ECG",
+        "TMT",
+        "Stress ECHO"
+      ],
+      "counts": {
+        "consultations": 5,
+        "investigations": 10,
+        "diagnostics": 3
+      },
+      "_dataGaps": {
+        "missingFromSheet": [
+          "Lipid Profile",
+          "HbA1c"
+        ],
+        "note": "Clinically expected (cardiometabolic package) but not listed on the Fortis sheet. Confirm with Fortis before scoring."
+      }
+    }
+  ]
+}

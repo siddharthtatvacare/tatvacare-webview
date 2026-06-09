@@ -1,0 +1,496 @@
+{
+  "_note": "Engine config for the risk-domain (A) + test-coverage (C) recommendation model, per NewScoringExplained.md. Consumed by services/newScoringEngine.js. Package profiles are DERIVED at runtime from new_fortis_packages.json via testRegistry aliases — not authored here.",
+  "version": "2.0",
+  "model": "A_alignment_plus_C_coverage",
+  "weights": {
+    "wA_alignment": 0.25,
+    "wC_coverage": 0.75
+  },
+  "formula": "fit = 100 * (wA*alignment + wC*coverage) * adequacy",
+  "domains": {
+    "M": "Metabolic — diabetes, glucose, insulin resistance, weight",
+    "C": "Cardiac — cardiovascular risk, lipids, ischaemia, heart function",
+    "O": "Onco / Age-screening — cancer screens & age-driven surveillance",
+    "G": "General-Organ — liver, kidney, thyroid, nutrition, haematology",
+    "X": "Gender-specific — sex-based reproductive & cancer screens"
+  },
+  "alignment": {
+    "method": "cosine_similarity",
+    "note": "cosine of patient domain vector v and package profile vector p; compares shape not size"
+  },
+  "coverage": {
+    "note": "share of the patient's indicated needs (tests+consults) the package contains, weighted by strength x importance",
+    "importanceRule": "maxDomainImportance",
+    "indicationAggregation": "max",
+    "indicationCap": 1.0,
+    "dataGapsCountAsPresent": true
+  },
+  "adequacy": {
+    "formula": "max(floor, 1 - slope*abs(packageBreadthTier - patientBurdenTier))",
+    "slope": 0.15,
+    "floor": 0.8,
+    "packageBreadthTier": {
+      "basic_health_package": 1,
+      "silver_health_package": 2,
+      "gold_health_package": 3,
+      "diabetic_profile": 2.5,
+      "healthy_heart_profile": 2.5
+    }
+  },
+  "burdenTier": {
+    "_note": "patient burden tier 1-3 from total domain points, nudged by Q8 depth preference (tunable).",
+    "fromTotalDomainPoints": [
+      {
+        "upTo": 6,
+        "tier": 1
+      },
+      {
+        "upTo": 12,
+        "tier": 2
+      },
+      {
+        "upTo": 9999,
+        "tier": 3
+      }
+    ],
+    "q8Delta": {
+      "q8_essentials": -0.5,
+      "q8_standard": 0,
+      "q8_comprehensive": 0.5
+    },
+    "clamp": [
+      1,
+      3
+    ]
+  },
+  "testRegistry": {
+    "internal_medicine": {
+      "label": "Internal Medicine",
+      "kind": "consult",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "Internal Medicine"
+      ]
+    },
+    "ophthalmology": {
+      "label": "Ophthalmology",
+      "kind": "consult",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "Ophthalmology"
+      ]
+    },
+    "dental": {
+      "label": "Dental Screening",
+      "kind": "consult",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "Dental Screening"
+      ]
+    },
+    "dietician": {
+      "label": "Dietician / Nutrition",
+      "kind": "consult",
+      "domains": {
+        "M": 1
+      },
+      "aliases": [
+        "Dietician"
+      ]
+    },
+    "endocrinologist": {
+      "label": "Endocrinologist",
+      "kind": "consult",
+      "domains": {
+        "M": 3
+      },
+      "aliases": [
+        "Endocrinologist"
+      ]
+    },
+    "cardiologist": {
+      "label": "Cardiologist",
+      "kind": "consult",
+      "domains": {
+        "C": 3
+      },
+      "aliases": [
+        "Cardiologist"
+      ]
+    },
+    "gastroenterologist": {
+      "label": "Gastroenterologist",
+      "kind": "consult",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "Gastroenterologist"
+      ]
+    },
+    "obgyn_urology": {
+      "label": "Obs & Gynae / Urology",
+      "kind": "consult",
+      "domains": {
+        "X": 2
+      },
+      "aliases": [
+        "Obs & Gynae",
+        "Obs & Gynae/Urology",
+        "Urologist / Gynae"
+      ]
+    },
+    "ent": {
+      "label": "ENT",
+      "kind": "consult",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "ENT"
+      ]
+    },
+    "cbc": {
+      "label": "CBC (Complete Blood Count)",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "CBC"
+      ]
+    },
+    "esr": {
+      "label": "ESR",
+      "kind": "test",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "ESR"
+      ]
+    },
+    "urine_routine": {
+      "label": "Urine Routine",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "Urine Analysis"
+      ]
+    },
+    "fbs": {
+      "label": "Fasting Blood Sugar",
+      "kind": "test",
+      "domains": {
+        "M": 3
+      },
+      "aliases": [
+        "Blood Sugar Fasting",
+        "Blood Sugar -Fasting"
+      ]
+    },
+    "ppbs": {
+      "label": "Post-Prandial Blood Sugar",
+      "kind": "test",
+      "domains": {
+        "M": 2
+      },
+      "aliases": [
+        "Blood Sugar -PP"
+      ]
+    },
+    "hba1c": {
+      "label": "HbA1c",
+      "kind": "test",
+      "domains": {
+        "M": 3
+      },
+      "aliases": [
+        "HbA1c"
+      ]
+    },
+    "lipid_profile": {
+      "label": "Lipid Profile",
+      "kind": "test",
+      "domains": {
+        "C": 3,
+        "M": 2
+      },
+      "aliases": [
+        "Lipid Profile"
+      ]
+    },
+    "lft": {
+      "label": "Liver Function Test",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "LFT"
+      ]
+    },
+    "kft": {
+      "label": "Kidney Function Test",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "KFT"
+      ]
+    },
+    "thyroid": {
+      "label": "Thyroid Profile (TSH)",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "Thyroid Profile"
+      ]
+    },
+    "vit_d": {
+      "label": "Vitamin D (25-OH)",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "25-Hydroxyvitamin D"
+      ]
+    },
+    "vit_b12": {
+      "label": "Vitamin B12",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "Vitamin B12"
+      ]
+    },
+    "microalbumin": {
+      "label": "Urine Microalbumin",
+      "kind": "test",
+      "domains": {
+        "M": 2,
+        "G": 1
+      },
+      "aliases": [
+        "Urine for Microalbuminuria"
+      ]
+    },
+    "hscrp": {
+      "label": "hsCRP",
+      "kind": "test",
+      "domains": {
+        "C": 2
+      },
+      "aliases": [
+        "C-Reactive Protein (Serum)"
+      ]
+    },
+    "troponin": {
+      "label": "Troponin-I",
+      "kind": "test",
+      "domains": {
+        "C": 2
+      },
+      "aliases": [
+        "Troponin-I"
+      ]
+    },
+    "serum_electrolytes": {
+      "label": "Serum Electrolytes (Na/K)",
+      "kind": "test",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "Serum Electrolytes",
+        "Serum Sodium",
+        "Serum Potassium"
+      ]
+    },
+    "ca_19_9": {
+      "label": "CA 19-9",
+      "kind": "test",
+      "domains": {
+        "O": 2
+      },
+      "aliases": [
+        "CA 19-9"
+      ]
+    },
+    "stool_occult": {
+      "label": "Stool Routine & Occult",
+      "kind": "test",
+      "domains": {
+        "O": 1,
+        "G": 1
+      },
+      "aliases": [
+        "Stool Routine & Occult"
+      ]
+    },
+    "fibroscan": {
+      "label": "Fibroscan",
+      "kind": "test",
+      "domains": {
+        "G": 2,
+        "M": 1
+      },
+      "aliases": [
+        "Fibroscan"
+      ]
+    },
+    "ecg": {
+      "label": "ECG",
+      "kind": "test",
+      "domains": {
+        "C": 2
+      },
+      "aliases": [
+        "ECG"
+      ]
+    },
+    "functional_cardiac": {
+      "label": "Echo / TMT / Stress Echo",
+      "kind": "test",
+      "domains": {
+        "C": 3
+      },
+      "aliases": [
+        "ECHO/TMT",
+        "TMT",
+        "Stress ECHO"
+      ]
+    },
+    "usg_abdomen": {
+      "label": "USG Whole Abdomen",
+      "kind": "test",
+      "domains": {
+        "G": 2,
+        "O": 1
+      },
+      "aliases": [
+        "USG Whole Abdomen"
+      ]
+    },
+    "chest_xray": {
+      "label": "Chest X-Ray",
+      "kind": "test",
+      "domains": {
+        "G": 1,
+        "O": 1
+      },
+      "aliases": [
+        "X-Ray Chest"
+      ]
+    },
+    "pap_psa": {
+      "label": "Pap Smear / PSA",
+      "kind": "test",
+      "domains": {
+        "O": 2,
+        "X": 3
+      },
+      "aliases": [
+        "Pap Smear /PSA",
+        "Liquid PAP Smear / PSA"
+      ]
+    },
+    "mammography": {
+      "label": "Mammography / USG Breast",
+      "kind": "test",
+      "domains": {
+        "O": 3,
+        "X": 3
+      },
+      "aliases": [
+        "Mammography/USG Breast"
+      ]
+    },
+    "dexa": {
+      "label": "DEXA (Bone Density)",
+      "kind": "test",
+      "domains": {
+        "G": 2
+      },
+      "aliases": [
+        "Dexa Scan Whole Body"
+      ]
+    },
+    "pft": {
+      "label": "PFT (Lung Function)",
+      "kind": "test",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "PFT"
+      ]
+    },
+    "audiometry": {
+      "label": "Audiometry",
+      "kind": "test",
+      "domains": {
+        "G": 1
+      },
+      "aliases": [
+        "Audiometry"
+      ]
+    }
+  },
+  "packages": {
+    "source": "new_fortis_packages.json",
+    "ids": [
+      "basic_health_package",
+      "silver_health_package",
+      "gold_health_package",
+      "diabetic_profile",
+      "healthy_heart_profile"
+    ]
+  },
+  "genderMap": {
+    "_note": "winning package id + patient sex -> oracle code in AHClisting.json",
+    "basic_health_package": {
+      "M": 441661,
+      "F": 441670
+    },
+    "silver_health_package": {
+      "M": 441669,
+      "F": 441667
+    },
+    "gold_health_package": {
+      "M": 441660,
+      "F": 441666
+    },
+    "diabetic_profile": {
+      "M": 441665,
+      "F": 441664
+    },
+    "healthy_heart_profile": {
+      "M": 441663,
+      "F": 441662
+    }
+  },
+  "tiebreaker": {
+    "priority": [
+      "healthy_heart_profile",
+      "diabetic_profile",
+      "gold_health_package",
+      "silver_health_package",
+      "basic_health_package"
+    ]
+  }
+}

@@ -14,16 +14,13 @@ function packageKey(name) {
 export default function ResultScreen({ recommendation, explainError, onExplain, onBook, onRetake }) {
   if (!recommendation) return null;
 
-  const { recommendedPackage, finalScores } = recommendation;
+  const { recommendedPackage, ranked = [] } = recommendation;
   const meta   = PACKAGE_META[packageKey(recommendedPackage.name)] || { icon: '✅', color: 'bg-gray-50 text-gray-700', tagline: '' };
   const price  = recommendedPackage.price.toLocaleString('en-IN');
   const gender = recommendedPackage.gender === 'male' ? 'Male' : 'Female';
 
-  // Sort scores for display
-  const scores = Object.entries(finalScores)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5);
-  const maxScore = scores[0]?.[1] || 1;
+  // Packages ranked by fit (0–100), best first
+  const maxFit = ranked[0]?.fit || 100;
 
   return (
     <div className="flex flex-col min-h-dvh bg-white">
@@ -53,29 +50,34 @@ export default function ResultScreen({ recommendation, explainError, onExplain, 
           </div>
         </div>
 
-        {/* Score breakdown */}
-        <div className="bg-gray-50 rounded-2xl px-5 py-4">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">How your profile scored</p>
-          <div className="space-y-3">
-            {scores.map(([pkg, score]) => {
-              const isWinner = pkg === Object.entries(finalScores).sort(([, a], [, b]) => b - a)[0][0];
-              return (
-                <div key={pkg}>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className={isWinner ? 'font-semibold text-tc-green' : 'text-gray-500'}>{pkg}</span>
-                    <span className={isWinner ? 'font-bold text-tc-green' : 'text-gray-400'}>{score}</span>
+        {/* Fit ranking */}
+        {ranked.length > 0 && (
+          <div className="bg-gray-50 rounded-2xl px-5 py-4">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">How each package fits you</p>
+            <p className="text-[11px] text-gray-400 mb-4">Match of your risk profile to each package (0–100)</p>
+            <div className="space-y-3">
+              {ranked.map((p, i) => {
+                const isWinner = i === 0;
+                return (
+                  <div key={p.id}>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className={isWinner ? 'font-semibold text-tc-green' : 'text-gray-500'}>
+                        {isWinner ? '★ ' : ''}{p.name}
+                      </span>
+                      <span className={isWinner ? 'font-bold text-tc-green' : 'text-gray-400'}>{p.fit}</span>
+                    </div>
+                    <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full transition-all duration-500 ${isWinner ? 'bg-tc-green' : 'bg-gray-300'}`}
+                        style={{ width: `${(p.fit / maxFit) * 100}%` }}
+                      />
+                    </div>
                   </div>
-                  <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full rounded-full transition-all duration-500 ${isWinner ? 'bg-tc-green' : 'bg-gray-300'}`}
-                      style={{ width: `${(score / maxScore) * 100}%` }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Explain error notice */}
         {explainError && (
