@@ -31,9 +31,8 @@ export default function WelcomeScreen({ onStart }) {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 gap-3 mb-8">
+        <div className="grid grid-cols-2 gap-3 mb-8">
           {[
-            { label: '8–13', sub: 'questions' },
             { label: '~3', sub: 'minutes' },
             { label: '5', sub: 'packages' },
           ].map(({ label, sub }) => (
