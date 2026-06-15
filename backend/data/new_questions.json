@@ -1,0 +1,818 @@
+{
+  "_note": "10 questions (5 categories x 2) per NewScoringExplained.md. Each option carries domainPoints (build the patient risk vector) and indicatedNeeds (drive coverage). q1 ageBand + q2 sex gate gender/age-specific needs and select the oracle code. q4 amplifies condition domains; q8 nudges burden tier.",
+  "categories": [
+    "Age & Sex",
+    "Existing Conditions",
+    "Symptoms",
+    "Concerns",
+    "Family History & Lifestyle"
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "category": "Age & Sex",
+      "text": "What is your age?",
+      "type": "single",
+      "options": [
+        {
+          "id": "q1_lt30",
+          "label": "Under 30",
+          "domainPoints": {
+            "G": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "cbc",
+              "strength": 0.3
+            },
+            {
+              "test": "lipid_profile",
+              "strength": 0.3
+            }
+          ],
+          "tag": {
+            "ageBand": 0
+          }
+        },
+        {
+          "id": "q1_30_45",
+          "label": "30–45",
+          "domainPoints": {
+            "G": 1,
+            "C": 1,
+            "M": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lipid_profile",
+              "strength": 0.5
+            },
+            {
+              "test": "fbs",
+              "strength": 0.5
+            },
+            {
+              "test": "cbc",
+              "strength": 0.5
+            }
+          ],
+          "tag": {
+            "ageBand": 1
+          }
+        },
+        {
+          "id": "q1_45_60",
+          "label": "45–60",
+          "domainPoints": {
+            "G": 1,
+            "C": 2,
+            "M": 1,
+            "O": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lipid_profile",
+              "strength": 0.5
+            },
+            {
+              "test": "fbs",
+              "strength": 0.5
+            },
+            {
+              "test": "cbc",
+              "strength": 0.5
+            },
+            {
+              "test": "ecg",
+              "strength": 0.5
+            },
+            {
+              "test": "hba1c",
+              "strength": 0.5
+            }
+          ],
+          "tag": {
+            "ageBand": 2
+          }
+        },
+        {
+          "id": "q1_60p",
+          "label": "60 and above",
+          "domainPoints": {
+            "G": 2,
+            "C": 2,
+            "M": 1,
+            "O": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lipid_profile",
+              "strength": 0.5
+            },
+            {
+              "test": "fbs",
+              "strength": 0.5
+            },
+            {
+              "test": "cbc",
+              "strength": 0.5
+            },
+            {
+              "test": "ecg",
+              "strength": 0.5
+            },
+            {
+              "test": "hba1c",
+              "strength": 0.5
+            },
+            {
+              "test": "usg_abdomen",
+              "strength": 0.5
+            },
+            {
+              "test": "dexa",
+              "strength": 0.5
+            }
+          ],
+          "tag": {
+            "ageBand": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "category": "Age & Sex",
+      "text": "Sex assigned at birth?",
+      "type": "single",
+      "options": [
+        {
+          "id": "q2_m",
+          "label": "Male",
+          "domainPoints": {
+            "X": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "pap_psa",
+              "strength": 1.0,
+              "appliesIf": {
+                "sex": "M",
+                "minAgeBand": 2
+              }
+            }
+          ],
+          "tag": {
+            "sex": "M"
+          }
+        },
+        {
+          "id": "q2_f",
+          "label": "Female",
+          "domainPoints": {
+            "X": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "pap_psa",
+              "strength": 1.0,
+              "appliesIf": {
+                "sex": "F",
+                "minAgeBand": 0
+              }
+            },
+            {
+              "test": "mammography",
+              "strength": 1.0,
+              "appliesIf": {
+                "sex": "F",
+                "minAgeBand": 2
+              }
+            }
+          ],
+          "tag": {
+            "sex": "F"
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "category": "Existing Conditions",
+      "text": "Which conditions have you been diagnosed with?",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q3_dia",
+          "label": "Diabetes / Pre-diabetes",
+          "domainPoints": {
+            "M": 3
+          },
+          "indicatedNeeds": [
+            {
+              "test": "hba1c",
+              "strength": 1.0
+            },
+            {
+              "test": "fbs",
+              "strength": 1.0
+            },
+            {
+              "test": "ppbs",
+              "strength": 1.0
+            },
+            {
+              "test": "microalbumin",
+              "strength": 1.0
+            },
+            {
+              "test": "lipid_profile",
+              "strength": 1.0
+            },
+            {
+              "test": "endocrinologist",
+              "strength": 1.0
+            }
+          ],
+          "tag": {
+            "condition": true
+          }
+        },
+        {
+          "id": "q3_htn",
+          "label": "Hypertension",
+          "domainPoints": {
+            "C": 3
+          },
+          "indicatedNeeds": [
+            {
+              "test": "ecg",
+              "strength": 1.0
+            },
+            {
+              "test": "lipid_profile",
+              "strength": 1.0
+            },
+            {
+              "test": "kft",
+              "strength": 1.0
+            },
+            {
+              "test": "functional_cardiac",
+              "strength": 1.0
+            },
+            {
+              "test": "cardiologist",
+              "strength": 1.0
+            }
+          ],
+          "tag": {
+            "condition": true
+          }
+        },
+        {
+          "id": "q3_heart",
+          "label": "Heart disease",
+          "domainPoints": {
+            "C": 3
+          },
+          "indicatedNeeds": [
+            {
+              "test": "ecg",
+              "strength": 1.0
+            },
+            {
+              "test": "functional_cardiac",
+              "strength": 1.0
+            },
+            {
+              "test": "lipid_profile",
+              "strength": 1.0
+            },
+            {
+              "test": "troponin",
+              "strength": 1.0
+            },
+            {
+              "test": "cardiologist",
+              "strength": 1.0
+            }
+          ],
+          "tag": {
+            "condition": true
+          }
+        },
+        {
+          "id": "q3_chol",
+          "label": "High cholesterol",
+          "domainPoints": {
+            "C": 2,
+            "M": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lipid_profile",
+              "strength": 1.0
+            }
+          ],
+          "tag": {
+            "condition": true
+          }
+        },
+        {
+          "id": "q3_thyroid",
+          "label": "Thyroid disorder",
+          "domainPoints": {
+            "G": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "thyroid",
+              "strength": 1.0
+            }
+          ],
+          "tag": {
+            "condition": true
+          }
+        },
+        {
+          "id": "q3_renal_liver",
+          "label": "Kidney / Liver disease",
+          "domainPoints": {
+            "G": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "kft",
+              "strength": 1.0
+            },
+            {
+              "test": "lft",
+              "strength": 1.0
+            },
+            {
+              "test": "fibroscan",
+              "strength": 1.0
+            },
+            {
+              "test": "gastroenterologist",
+              "strength": 1.0
+            }
+          ],
+          "tag": {
+            "condition": true
+          }
+        },
+        {
+          "id": "q3_none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "category": "Existing Conditions",
+      "text": "Are these conditions under control?",
+      "type": "single",
+      "options": [
+        {
+          "id": "q4_na",
+          "label": "No chronic condition / N.A.",
+          "effect": {
+            "type": "amplifyConditionDomains",
+            "amount": 0
+          }
+        },
+        {
+          "id": "q4_controlled",
+          "label": "Well controlled",
+          "effect": {
+            "type": "amplifyConditionDomains",
+            "amount": 0
+          }
+        },
+        {
+          "id": "q4_partial",
+          "label": "Partially controlled",
+          "effect": {
+            "type": "amplifyConditionDomains",
+            "amount": 1
+          }
+        },
+        {
+          "id": "q4_uncontrolled",
+          "label": "Uncontrolled / recently diagnosed",
+          "effect": {
+            "type": "amplifyConditionDomains",
+            "amount": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "category": "Symptoms",
+      "text": "Any of these cardiometabolic symptoms?",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q5_chest",
+          "label": "Chest discomfort / breathless on exertion",
+          "domainPoints": {
+            "C": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "ecg",
+              "strength": 1.0
+            },
+            {
+              "test": "functional_cardiac",
+              "strength": 1.0
+            },
+            {
+              "test": "troponin",
+              "strength": 0.8
+            },
+            {
+              "test": "cardiologist",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q5_palp",
+          "label": "Palpitations / irregular heartbeat",
+          "domainPoints": {
+            "C": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "ecg",
+              "strength": 1.0
+            },
+            {
+              "test": "functional_cardiac",
+              "strength": 1.0
+            },
+            {
+              "test": "cardiologist",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q5_thirst",
+          "label": "Excessive thirst / frequent urination",
+          "domainPoints": {
+            "M": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "fbs",
+              "strength": 1.0
+            },
+            {
+              "test": "hba1c",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q5_weight",
+          "label": "Unexplained weight change",
+          "domainPoints": {
+            "M": 1,
+            "G": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "hba1c",
+              "strength": 1.0
+            },
+            {
+              "test": "thyroid",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q5_none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "category": "Symptoms",
+      "text": "Any of these general / organ symptoms?",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q6_fatigue",
+          "label": "Persistent fatigue / weakness",
+          "domainPoints": {
+            "G": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "cbc",
+              "strength": 1.0
+            },
+            {
+              "test": "thyroid",
+              "strength": 1.0
+            },
+            {
+              "test": "vit_d",
+              "strength": 1.0
+            },
+            {
+              "test": "vit_b12",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q6_digestive",
+          "label": "Digestive / abdominal discomfort",
+          "domainPoints": {
+            "G": 2,
+            "O": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lft",
+              "strength": 1.0
+            },
+            {
+              "test": "usg_abdomen",
+              "strength": 1.0
+            },
+            {
+              "test": "fibroscan",
+              "strength": 1.0
+            },
+            {
+              "test": "stool_occult",
+              "strength": 1.0
+            },
+            {
+              "test": "gastroenterologist",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q6_joint",
+          "label": "Joint / bone pain",
+          "domainPoints": {
+            "G": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "vit_d",
+              "strength": 1.0
+            },
+            {
+              "test": "dexa",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q6_infections",
+          "label": "Frequent infections",
+          "domainPoints": {
+            "G": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "cbc",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q6_none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "category": "Concerns",
+      "text": "What is your main reason for this check-up?",
+      "type": "single",
+      "options": [
+        {
+          "id": "q7_baseline",
+          "label": "General baseline / peace of mind",
+          "domainPoints": {
+            "G": 1
+          }
+        },
+        {
+          "id": "q7_metabolic",
+          "label": "Diabetes / metabolic health",
+          "domainPoints": {
+            "M": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "endocrinologist",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q7_heart",
+          "label": "Heart health",
+          "domainPoints": {
+            "C": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "cardiologist",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q7_cancer",
+          "label": "Cancer / early detection",
+          "domainPoints": {
+            "O": 2
+          }
+        },
+        {
+          "id": "q7_sexual",
+          "label": "Women's / Men's health",
+          "domainPoints": {
+            "X": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "obgyn_urology",
+              "strength": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "category": "Concerns",
+      "text": "How thorough do you want it?",
+      "type": "single",
+      "options": [
+        {
+          "id": "q8_essentials",
+          "label": "Just the essentials",
+          "effect": {
+            "type": "burden",
+            "delta": -0.5
+          }
+        },
+        {
+          "id": "q8_standard",
+          "label": "A standard thorough check",
+          "effect": {
+            "type": "burden",
+            "delta": 0
+          }
+        },
+        {
+          "id": "q8_comprehensive",
+          "label": "Comprehensive incl. imaging & cancer markers",
+          "domainPoints": {
+            "O": 1
+          },
+          "effect": {
+            "type": "burden",
+            "delta": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "category": "Family History & Lifestyle",
+      "text": "Family history of:",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q9_dia",
+          "label": "Diabetes",
+          "domainPoints": {
+            "M": 2
+          }
+        },
+        {
+          "id": "q9_heart",
+          "label": "Heart disease / stroke",
+          "domainPoints": {
+            "C": 2
+          }
+        },
+        {
+          "id": "q9_cancer",
+          "label": "Cancer",
+          "domainPoints": {
+            "O": 2
+          }
+        },
+        {
+          "id": "q9_thyroid",
+          "label": "Thyroid / autoimmune",
+          "domainPoints": {
+            "G": 1
+          }
+        },
+        {
+          "id": "q9_none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "category": "Family History & Lifestyle",
+      "text": "Lifestyle factors:",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q10_smoking",
+          "label": "Smoking / tobacco",
+          "domainPoints": {
+            "C": 2,
+            "O": 2
+          },
+          "indicatedNeeds": [
+            {
+              "test": "chest_xray",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q10_sedentary",
+          "label": "Sedentary / high stress",
+          "domainPoints": {
+            "C": 1,
+            "M": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "dietician",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q10_alcohol",
+          "label": "Regular alcohol",
+          "domainPoints": {
+            "G": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lft",
+              "strength": 1.0
+            },
+            {
+              "test": "fibroscan",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q10_diet",
+          "label": "Poor diet / overweight",
+          "domainPoints": {
+            "M": 2,
+            "C": 1
+          },
+          "indicatedNeeds": [
+            {
+              "test": "lipid_profile",
+              "strength": 1.0
+            },
+            {
+              "test": "fbs",
+              "strength": 1.0
+            },
+            {
+              "test": "dietician",
+              "strength": 1.0
+            }
+          ]
+        },
+        {
+          "id": "q10_active",
+          "label": "Physically active / none"
+        }
+      ]
+    }
+  ]
+}
